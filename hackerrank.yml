@@ -2,7 +2,7 @@ version: 1.0
 configuration:
   has_webserver: true
   scoring:
-    command: yarn install && rm -rf ./junit.xml
+    command: yarn install && rm -rf ./junit.xml && ./node_modules/.bin/react-scripts test --watchAll=false --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit
     files:
       - junit.xml
     # Define hidden test cases and declare file paths below to evaluate candidates' submissions.
@@ -13,8 +13,8 @@ configuration:
     # hidden_files_paths:
     #   - tests/custom_test_[1-2].sh
     #   - app/secret_test
-  # readonly_paths:
-  #   - src/App.test.js
+  readonly_paths:
+    - src/App.test.js
   ide_config:
     default_open_files:
       - src/App.js
